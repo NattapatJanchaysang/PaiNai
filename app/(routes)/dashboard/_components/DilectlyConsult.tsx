@@ -16,6 +16,7 @@ import axios from 'axios'
 import DocterAgentCard, { docterAgent } from './DocterAgentCard'
 import SuggestedDocterCard from './SuggestedDocterCard'
 import { useRouter } from 'next/navigation'
+import { useAuth, useUser } from '@clerk/nextjs'
 
 
 type props={
@@ -26,8 +27,10 @@ function DilectlyConsult({docterAgent}:props) {
 
     const [loading,setLoading] = useState(false)
     const router=useRouter()
-    const [selectedDocter,setSelectedDocter]=useState<docterAgent>()
+    const { user } = useUser();
     const [note,setNote] = useState <string> ()
+    const { has } = useAuth()
+    const hasPremiumAccess = has?.({ plan: 'premium' })
 
 
     const onStartConsultation= async ()=>{
@@ -49,7 +52,7 @@ function DilectlyConsult({docterAgent}:props) {
   return (
     <div>
     <Dialog>
-      <DialogTrigger asChild><Button className='my-2'>+ Start a Consultation</Button></DialogTrigger>
+      <DialogTrigger asChild><Button disabled={!hasPremiumAccess && docterAgent.subscriptionRequired} className='my-2'>+ Start a Consultation</Button></DialogTrigger>
   <DialogContent >
     <DialogHeader>
       <DialogTitle>Add Basic Details</DialogTitle>

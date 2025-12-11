@@ -9,6 +9,7 @@ import HistoryTable from './HistoryTable'
 import { SessionDetail } from '../medical-agent/[sessionId]/page'
 import { useUser } from '@clerk/nextjs'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function HistoryList() {
   
@@ -27,10 +28,10 @@ function HistoryList() {
     <div>
         {historyList.length==0?
         <div className='flex flex-col items-center justify-center border-2 border-dashed rounded mt-5 gap-2 py-6'>
-            <img src="medical-assistance.png" alt="empty" width={200} height={200}/>
+            <Image src="/questionmark.png" alt="empty" width={200} height={200}/>
             <h2 className='font-bold mt-4'>No Recent Consultations</h2>
-            <p>It looks like you haven't consulted with any docters yet.</p>
-            {user ? <AddNewSessionDialog /> : <Link href='/sign-in'><Button>Sign-in to Start Consultation</Button></Link>}
+            <p>เอ๊ะ! ดูเหมือนคุณจะยังไม่เคยมาปรึกษาคุณหมอของเราเลยนะ… {!user ? <span>ลงทะเบียนก่อนซิ...</span> : ''}</p>
+            {user ? <AddNewSessionDialog /> : <Link href='/sign-in'><Button className='mt-2 mb-6'><span className='font-bold text-green-400'>Sign in</span> to Start Consultation</Button></Link>}
         </div> :
         <div>
             <HistoryTable historyList={historyList}/>

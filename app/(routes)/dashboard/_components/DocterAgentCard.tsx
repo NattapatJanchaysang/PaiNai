@@ -30,16 +30,13 @@ type props={
 
 
 function DocterAgentCard({docterAgent}:props) {
-
-const { has } = useAuth()
-const {user} = useUser()
-const hasPremiumAccess = has?.({ plan: 'premium' })
+  const { user } = useUser()
 
   return (
   <div className="border shadow rounded-xl p-4">
     <div className="flex flex-col">
     <div className="flex justify-between">
-      <h2 className="font-bold text-lg">{docterAgent.specialist}</h2>
+      <h2 className="font-bold text-lg line-clamp-1">{docterAgent.specialist}</h2>
       {docterAgent.subscriptionRequired && <Badge>Premium</Badge>}
     </div>
 
@@ -50,7 +47,7 @@ const hasPremiumAccess = has?.({ plan: 'premium' })
     className="h-[300px] w-full object-cover rounded-xl mt-6 mb-4"
     alt={docterAgent.specialist}
     />
-      <DilectlyConsult docterAgent={docterAgent} />       
+      {user ? <DilectlyConsult docterAgent={docterAgent} /> : <Button disabled className="my-2">+ Start a Consultation</Button>}       
     </div>
   </div>
   );
