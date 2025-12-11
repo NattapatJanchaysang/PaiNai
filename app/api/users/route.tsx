@@ -30,7 +30,7 @@ export async function POST(req:NextRequest) {
             }).returning(); // Fix 3: แก้ไข .returning()
 
             // result จะเป็น array ที่มี object ของ user ที่ถูกสร้างใหม่
-            return NextResponse.json(result[0]?.usersTable); 
+            return NextResponse.json(result[0]); 
         }
 
         return NextResponse.json(users[0])
