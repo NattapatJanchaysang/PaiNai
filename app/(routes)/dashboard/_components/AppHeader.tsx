@@ -9,22 +9,22 @@ function AppHeader() {
         {
             id:1,
             name:"Home",
+            path:'/'
+        },
+        {
+            id:2,
+            name:"Dashboard",
             path:'/dashboard'
         },
-                {
-            id:2,
+        {
+            id:3,
             name:"History",
             path:'/dashboard/history'
         },
-                {
-            id:3,
-            name:"Pricing",
-            path:'/pricing'
-        },
-                {
+        {
             id:4,
-            name:"Profile",
-            path:'/profile'
+            name:"Pricing",
+            path:'/dashboard/pricing'
         },
     ]
   return (

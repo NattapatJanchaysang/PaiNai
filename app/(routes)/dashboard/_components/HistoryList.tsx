@@ -7,8 +7,12 @@ import AddNewSessionDialog from './AddNewSessionDialog'
 import axios from 'axios'
 import HistoryTable from './HistoryTable'
 import { SessionDetail } from '../medical-agent/[sessionId]/page'
+import { useUser } from '@clerk/nextjs'
+import Link from 'next/link'
 
 function HistoryList() {
+  
+    const {user} = useUser()
     const [historyList,setHistorylist] = useState<SessionDetail[]>([])
 
     useEffect(() => {
@@ -26,7 +30,7 @@ function HistoryList() {
             <img src="medical-assistance.png" alt="empty" width={200} height={200}/>
             <h2 className='font-bold mt-4'>No Recent Consultations</h2>
             <p>It looks like you haven't consulted with any docters yet.</p>
-            <AddNewSessionDialog />
+            {user ? <AddNewSessionDialog /> : <Link href='/sign-in'><Button>Sign-in to Start Consultation</Button></Link>}
         </div> :
         <div>
             <HistoryTable historyList={historyList}/>

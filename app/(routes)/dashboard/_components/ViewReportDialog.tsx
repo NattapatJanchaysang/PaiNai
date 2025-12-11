@@ -31,7 +31,7 @@ function ViewReportDialog({record}:props) {
                         <h2 className="font-bold text-lg text-blue-500 py-2">ข้อมูลการปรึกษา</h2>
                     
                         <div className="grid grid-cols-2 gap-2">                   
-                            <h2><span className="text-primary font-bold">Docter Specialization: </span> {record.selectedDocter.specialist}</h2>
+                            <h2><span className="text-primary font-bold">Docter Specialization: </span> {record.selectedDocter?.specialist}</h2>
                             <h2><span className="text-primary font-bold">Consult Date: </span>{moment(new Date(record?.createdOn)).fromNow()}</h2>
                         </div>
                     </div>

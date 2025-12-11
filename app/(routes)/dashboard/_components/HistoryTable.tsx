@@ -18,7 +18,7 @@ type Props = {
 }
 export default function HistoryTable({historyList}:Props) {
   return (
-    <div>
+    <div className="border-2 border-dashed rounded mt-5 gap-2 p-6">
       <Table>
         <TableCaption>Previous Consulation Reports</TableCaption>
         <TableHeader>
@@ -32,7 +32,7 @@ export default function HistoryTable({historyList}:Props) {
         <TableBody>
         {historyList.map((record:SessionDetail,index:number)=>(
           <TableRow>
-            <TableCell className="font-medium">{record.selectedDocter.specialist}</TableCell>
+            <TableCell className="font-medium">{record.selectedDocter?.specialist}</TableCell>
             <TableCell>{record.notes}</TableCell>
             <TableCell>{moment(new Date(record.createdOn)).fromNow()}</TableCell>
             <TableCell className="text-right"><ViewReportDialog record={record}/></TableCell>
