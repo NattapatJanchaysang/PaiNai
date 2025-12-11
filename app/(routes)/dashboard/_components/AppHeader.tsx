@@ -34,7 +34,7 @@ function AppHeader() {
     ]
   return (
     <div className='flex justify-between items-center p-4 shadow  px-10 md:px-24 lg:px-40'>
-        <Link href='/' className="cursor-pointer"><Image src="/Websitelogo.png" alt="logo" width={180} height={10}/></Link>
+        <Link href='/' className="cursor-pointer"><Image src="/WebsiteLogo.png" alt="logo" width={180} height={10}/></Link>
         <div className='hidden md:flex gap-12 items-center'>
             {menuOption.map((option, index) => (
                 <div key={index}>
