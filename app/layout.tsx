@@ -24,8 +24,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EasyTalk",
-  description: "Ai สาวสวยช่วยฝึกพูดภาษาอังกฤษ",
+  title: "PaiNai",
+  description: "Ai แนะนำเส้นทาง",
 };
 
 export default function RootLayout({
@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider >
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
