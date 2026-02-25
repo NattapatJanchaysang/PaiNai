@@ -35,11 +35,12 @@ Live demo: [pai-nai.vercel.app](https://pai-nai.vercel.app)
 
 ## เทคโนโลยีที่ใช้
 
-- Next.js
-- React
+- Next.js (front-End + Back-End)
 - Tailwind CSS (หรืออื่น ๆ ตามที่ใช้)
-- API สำหรับเรียกข้อมูลแผนที่หรือ AI model
-
+- Vapi Ai (สำหรับ Ai voice chat)
+- OpenrouterAi (Ai สำหรับสรุปบทสนทนา)
+- Neon Postgres (เก็บข้อมูลผู้ใช้ มี 2 ตาราง user กับ reports)
+- Clerk authentication (ระบบ login)
 
 ---
 
