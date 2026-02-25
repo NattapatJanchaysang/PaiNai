@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState, useRef } from "react";
 // ตรวจสอบ path ให้ถูกต้องตามโครงสร้างโปรเจคของคุณ
-import { Circle, Loader, PhoneCall, PhoneOff } from "lucide-react";
+import { BookOpen, Circle, Loader, PhoneCall, PhoneOff } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Vapi from "@vapi-ai/web";
@@ -77,8 +77,11 @@ function Mainspace() {
   }, [vapiInstance]);
 
   // 4. Auto Scroll to bottom
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+useEffect(() => {
+    // เช็คก่อนว่ามีข้อความ หรือมีการพูดอยู่ ค่อยเลื่อน
+    if (messages.length > 0 || liveTranscript !== "") {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   }, [messages, liveTranscript]);
 
   // --- Functions ---
@@ -184,7 +187,7 @@ const endCall = async () => {
   };
 
   return (
-    <div className="p-4 border rounded-3xl h-screen min-h-[500px] flex flex-col ">
+    <div className="p-4 border h-screen min-h-[500px] flex flex-col ">
       {/* Header */}
       <div className="flex justify-between items-center p-3 rounded-xl">
         <div className="flex gap-2 items-center">
@@ -304,7 +307,7 @@ const endCall = async () => {
           )}
           <Link href="/report">
             <Button className="w-full max-w-xs h-12 text-lg shadow-lg ml-4 text-black bg-white hover:bg-gray-200 scaled-110">
-              ประวัติการสอบถามเส้นทาง
+              <BookOpen className="mr-2 w-5 h-5" />ประวัติการสอบถามเส้นทาง
             </Button>
           </Link>
         </div>

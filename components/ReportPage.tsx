@@ -70,9 +70,6 @@ export default async function ReportPage() {
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 pb-4 border-b">
                 <Calendar className="w-4 h-4" />
                 <span>{formatDate(report.createdOn)}</span>
-                <span className="ml-auto text-xs opacity-50 font-mono">
-                  Session: {report.sessionId?.slice(0, 8)}...
-                </span>
               </div>
 
               <div className="flex gap-4">
