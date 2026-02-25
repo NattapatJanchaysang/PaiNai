@@ -40,9 +40,6 @@ Live demo: [pai-nai.vercel.app](https://pai-nai.vercel.app)
 - Tailwind CSS (หรืออื่น ๆ ตามที่ใช้)
 - API สำหรับเรียกข้อมูลแผนที่หรือ AI model
 
-## การมีส่วนร่วม
-
-ยินดีรับ PR, issue หรือข้อเสนอแนะเพิ่มเติม เพื่อพัฒนา PainAI ให้มีความฉลาดและใช้งานสะดวกยิ่งขึ้น
 
 ---
 
